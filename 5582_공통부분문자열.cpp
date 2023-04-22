@@ -1,7 +1,5 @@
-#include <algorithm>
 #include <cstring>
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
@@ -23,9 +21,9 @@ int main() {
                 dp[i][j] = 1;
                 if (i >= 1 && j >= 1) {
                     dp[i][j] += dp[i - 1][j - 1];  // 완전 탐색 이지만 값을 dp로
+                    result = max(result, dp[i][j]);
                 }
             }
-            result = max(result, dp[i][j]);
         }
     }
     cout << result;
