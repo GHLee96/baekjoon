@@ -13,7 +13,7 @@ int main() {
     priority_queue<int, vector<int>, greater<int>> greater_pq;
     priority_queue<int> less_pq;
 
-    // 10^5
+    // n : 10^5
     for (int i = 0; i < N; i++) {
         int num;
         cin >> num;
