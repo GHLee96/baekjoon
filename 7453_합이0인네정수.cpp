@@ -13,7 +13,8 @@ int s2[4005 * 4005];
 void input() {
     cin >> N;
 
-    for (int i = 0; i < 4; i++) arr[i].resize(N);
+    for (int i = 0; i < 4; i++)
+        arr[i].resize(N);
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < 4; j++) {
             cin >> arr[j][i];

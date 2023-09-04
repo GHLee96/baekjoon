@@ -12,14 +12,16 @@ struct info {
 
 struct cmp1 {
     bool operator()(info l, info r) {
-        if (l.num == r.num) return l.group > r.group;
+        if (l.num == r.num)
+            return l.group > r.group;
         return l.num > r.num;
     }
 };
 
 struct cmp2 {
     bool operator()(info l, info r) {
-        if (l.num == r.num) return l.group > r.group;
+        if (l.num == r.num)
+            return l.group > r.group;
         return l.num < r.num;
     }
 };
@@ -63,7 +65,8 @@ int main() {
 
         res = min(res, max_val.num - min_val.num);
 
-        if (idx[min_val.group] == M) break;
+        if (idx[min_val.group] == M)
+            break;
         int next_val = arr[min_val.group][idx[min_val.group]];
         q_min.push({next_val, min_val.group});
         q_max.push({next_val, min_val.group});
