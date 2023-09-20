@@ -10,7 +10,7 @@ char op[20];
 int res_digit[20];
 char res_op[20];
 
-int max_res;
+int max_res = 0x80000000;
 
 void input() {
     cin >> N;
