@@ -1,1 +1,1 @@
-max_res
+min_val
