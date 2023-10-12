@@ -1,1 +1,1 @@
-min_val
+val
