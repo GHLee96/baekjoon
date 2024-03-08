@@ -1,3 +1,4 @@
+#include <cstring>
 #include <iostream>
 #include <queue>
 #include <vector>
@@ -13,7 +14,7 @@ struct info {
 };
 
 int N, E;
-int v1, v2;
+int v[2];
 
 vector<info> adj[805];
 vector<vector<int>> dist;
@@ -32,15 +33,26 @@ void input() {
         adj[b].push_back({a, c, 0});
     }
 
-    cin >> v1 >> v2;
+    for (int i = 0; i < 2; i++) {
+        cin >> v[i];
+    }
 }
 
 void sol() {
     dist.resize(N + 5, vector<int>(4, 0x7ffffff));
 
     priority_queue<info> q;
-    q.push({1, 0, 0});
-    dist[1][0] = 0;
+
+    int next_cnt = 0;
+
+    for (int i = 0; i < 2; i++) {
+        if (v[i] == 1)
+            next_cnt = next_cnt | (1 << i);
+    }
+
+    dist[1][next_cnt] = 0;
+
+    q.push({1, 0, next_cnt});
 
     while (!q.empty()) {
         info now = q.top();
@@ -52,11 +64,10 @@ void sol() {
         for (auto next : adj[now.node]) {
 
             int next_cnt = now.cnt;
-            if (next.node == v1)
-                next_cnt = now.cnt | 0x1;
-
-            if (next.node == v2)
-                next_cnt = now.cnt | 0x2;
+            for (int i = 0; i < 2; i++) {
+                if (v[i] == next.node)
+                    next_cnt = next_cnt | (1 << i);
+            }
 
             if (dist[next.node][next_cnt] <=
                 dist[now.node][now.cnt] + next.cost)
