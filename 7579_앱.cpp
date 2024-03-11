@@ -21,7 +21,8 @@ int main() {
     v.resize(N + 1);
 
     int cost_sum = 0;
-    for (int i = 1; i <= N; i++) cin >> v[i].bytes;
+    for (int i = 1; i <= N; i++)
+        cin >> v[i].bytes;
     for (int i = 1; i <= N; i++) {
         cin >> v[i].cost;
         cost_sum += v[i].cost;
@@ -35,13 +36,14 @@ int main() {
     }
 
     int ans = 0x7fffffff;
-    for (int i = 1; i <= cost_sum; i++) {
+    for (int i = 0; i <= cost_sum; i++) {
         if (dp[i] >= M) {
             ans = min(ans, i);
+            break;
         }
     }
 
-    cout << ans;
+    cout << ans << endl;
 
     return 0;
 }
