@@ -12,7 +12,8 @@ int main() {
         for (int j = 0; j < 3; j++) {
             if (i == 1 && j == 1)
                 cout << ':' << n << ':';
-            cout << ':' << k << ':' << ' ';
+            else
+                cout << ':' << k << ':';
         }
         cout << endl;
     }
