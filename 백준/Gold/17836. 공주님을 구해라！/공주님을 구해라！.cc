@@ -68,7 +68,7 @@ int get_min_time() {
 	}
 
 	int res = min(visit[N - 1][M - 1], jump);
-	if (T < res || res <= 1)
+	if (T < res)
 		res = -1;
 		
 	return res;
